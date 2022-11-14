@@ -24,20 +24,19 @@ function ShowTextBox(txtId, e, labelId)
 //or cancel on Escape
 function SaveDataOnEnter(txtId, e, labelId, btnId)
 {
-	if (window.event)
-	{
+	if (window.event) {
 		e = window.event;
-	}
 
-	switch(e.keyCode)
-	{
-		case 13:	//Enter - save
-			document.getElementById(btnId).click();
-			break;
-		case 27:	//Escape - hide
-			document.getElementById(txtId).style.display = "none";
-			ShowLabel(labelId, e, txtId);
-			break;
+		switch (e.key)
+		{
+			case "Enter":	//Enter - save
+				SaveDataOnLostFocus(txtId, btnId);
+				break;
+			case "Escape":	//Escape - hide
+				document.getElementById(txtId).style.display = "none";
+				ShowLabel(labelId, e, txtId);
+				break;
+		}
 	}
 }
 

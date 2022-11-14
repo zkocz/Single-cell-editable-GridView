@@ -37,11 +37,11 @@ namespace Single_cell_editable_GridView
 		}
 
 		/// <summary>
-		/// Add cell to GridView row` this code is common so we can create a method
+		/// Add cell to GridView row; this code is common so we can create a method
 		/// </summary>
-		/// <param name="cellIndex">index</param>
-		/// <param name="cellName">name of controls without prefix; in case
-		/// you want to use another convention, you may not use this method, but
+		/// <param name="cellIndex">index of column</param>
+		/// <param name="cellName">name of controls without prefix;
+		/// if you want to use another convention, you may not use this method, but
 		/// you can always use the code directly in GridView1_RowDataBound
 		/// </param>
 		/// <param name="e">Event args with info about the row</param>
@@ -63,7 +63,7 @@ namespace Single_cell_editable_GridView
 			//label (we want to hide this label and show textbox on click)
 			lab.Attributes.Add("onclick", string.Format("return HideLabel('{0}', event, '{1}');", lab.ClientID, txt.ClientID));
 			//and to textbox
-			txt.Attributes.Add("onkeypress", string.Format("return SaveDataOnEnter('{0}', event, '{1}', '{2}');", txt.ClientID, lab.ClientID, btn.ClientID));
+			txt.Attributes.Add("onkeydown", string.Format("return SaveDataOnEnter('{0}', event, '{1}', '{2}');", txt.ClientID, lab.ClientID, btn.ClientID));
 			//todo: there is an issue with onblur, I am not JS master, but hope it is just a small issue
 
 			txt.Attributes.Add("onblur", string.Format("return SaveDataOnLostFocus('{0}', '{1}');", txt.ClientID, btn.ClientID));
