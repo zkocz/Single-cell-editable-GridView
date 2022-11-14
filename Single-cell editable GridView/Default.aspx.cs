@@ -63,6 +63,7 @@ namespace Single_cell_editable_GridView
 			//label (we want to hide this label and show textbox on click)
 			lab.Attributes.Add("onclick", string.Format("return HideLabel('{0}', event, '{1}');", lab.ClientID, txt.ClientID));
 			//and to textbox
+			txt.Attributes.Add("class", "editctrl");
 			txt.Attributes.Add("onkeydown", string.Format("return SaveDataOnEnter('{0}', event, '{1}', '{2}');", txt.ClientID, lab.ClientID, btn.ClientID));
 			//todo: there is an issue with onblur, I am not JS master, but hope it is just a small issue
 

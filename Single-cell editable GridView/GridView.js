@@ -22,21 +22,18 @@ function ShowTextBox(txtId, e, labelId)
 
 //save textbox data by pressing Enter
 //or cancel on Escape
-function SaveDataOnEnter(txtId, e, labelId, btnId)
-{
-	if (window.event) {
-		e = window.event;
+function SaveDataOnEnter(txtId, e, labelId, btnId) {
+	let box = document.querySelector('.editctrl');
+	let ent = event.key;
 
-		switch (e.key)
-		{
-			case "Enter":	//Enter - save
-				SaveDataOnLostFocus(txtId, btnId);
-				break;
-			case "Escape":	//Escape - hide
-				document.getElementById(txtId).style.display = "none";
-				ShowLabel(labelId, e, txtId);
-				break;
-		}
+	switch (ent) {
+		case "Enter":	//Enter - save
+			SaveDataOnLostFocus(txtId, btnId);
+			break;
+		case "Escape":	//Escape - hide
+			document.getElementById(txtId).style.display = "none";
+			ShowLabel(labelId, e, txtId);
+			break;
 	}
 }
 
